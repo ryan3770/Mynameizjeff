@@ -18,7 +18,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => { 
-  if (message.content.startsWith(prefix + 'sam')) { 
+  if (message.content.startsWith(prefix + 'infosam')) { 
     message.channel.send('the coolest guy in server'); 
   }
 });
