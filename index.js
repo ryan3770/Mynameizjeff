@@ -23,18 +23,19 @@ client.on('message', message => {
   }
 });
 
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
-fs.readdir('./commands/', (err, files) => {
-  if (err) console.error(err); 
-    let props = require(`./commands/${f}`); 
-    log(`Loading Command: ${props.help.name}`);
-    client.commands.set(props.help.name, props);
-    props.conf.aliases.forEach(alias => {
-      client.aliases.set(alias, props.help.name);
-    });
-  });
-});
+{
+
+let commandFile = require(`./commands/${command}.js`);
+
+commandFile.run(client, message, args);
+
+} catch (err) {
+
+console.error(err);
+
+}
+
+}
 
 client.reload = command => { 
   return new Promise((resolve, reject) => {
