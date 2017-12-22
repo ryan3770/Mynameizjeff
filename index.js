@@ -11,12 +11,11 @@ client.on('ready', () => {
   client.users.get(botownerid).send("Hi owner, I am back after a restart.")
 }); 
 
-exports.run = (client, message, args) => {
-message.react('🏓');
-message.channel.send('Pong?').then(sent => {
-    sent.edit(`:ping_pong:Pong! Took ${sent.createdTimestamp - message.createdTimestamp}ms`);
+client.on('message', message => { 
+  if (message.content.startsWith(prefix + 'ping')) { 
+    message.channel.send('Pong :ping_pong:'); 
+  }
 });
-}
 
 client.on('message', message => { 
   if (message.content.startsWith(prefix + 'infosam')) { 
