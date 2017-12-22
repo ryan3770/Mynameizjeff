@@ -22,13 +22,3 @@ client.on('message', message => {
     message.channel.send('*the coolest guy in server*'); 
   }
 });
-
-{
-
-{
-
-let commandFile = require(`./commands/${command}.js`);
-
-commandFile.run(client, message, args);
- 
-});
