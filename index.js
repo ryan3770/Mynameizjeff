@@ -23,3 +23,10 @@ client.on('message', message => {
   }
 });
 
+{
+
+let commandFile = require(`/commands/${command}.js`);
+
+commandFile.run(client, message, args);
+
+} 
