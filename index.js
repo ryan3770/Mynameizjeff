@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const prefix = "!";
+const prefix = "?";
 const botownerid = "280749589974482945";
 
 client.login(process.env.TOKEN);
