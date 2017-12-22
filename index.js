@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const prefix = "?";
+const prefix = "!";
 const botownerid = "280749589974482945";
 
 client.login(process.env.TOKEN);
@@ -13,7 +13,7 @@ client.on('ready', () => {
 
 client.on('message', message => { 
   if (message.content.startsWith(prefix + 'ping')) { 
-    message.channel.send('Pong :ping_pong:'); 
+    message.channel.send('Pong 🏓'); 
   }
 });
 
@@ -22,3 +22,12 @@ client.on('message', message => {
     message.channel.send('*the coolest guy in server*'); 
   }
 });
+
+{
+
+let commandFile = require(`./commands/${command}.js`);
+
+commandFile.run(client, message, args);
+
+
+}
