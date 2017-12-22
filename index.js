@@ -25,15 +25,8 @@ client.on('message', message => {
 
 exports.run = (client, message, args) => {
 const config = require('../config.json');
-let newavatartime = message.content.split(" ").slice(1);
-let blasty = newavatartime.join(" ");
-if(message.author.id !== config.botownerid) return message.reply('you are not my owner!!!');
-if(!blasty.startsWith('http')){
-message.reply(`New Avatar Set : ./images/${blasty}.png`);
-client.user.setAvatar(`./images/${blasty}.png`);
-}else {
-message.reply(`New Avatar Set : ${blasty}`);
-client.user.setAvatar(blasty);
-}
-
+let sigh = message.content.split(" ").slice(1);
+let psymsg = sigh.join(" ");
+message.channel.send('Reported!');
+client.users.get(config.botownerid).send(`${message.author.tag} from ${message.guild.name} have reported: ` + psymsg);
 }
